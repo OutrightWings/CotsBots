@@ -32,6 +32,13 @@ public class  ConnectedThread extends Thread{
         inputStream=inputTemp;
         outputStream=outputTemp;
     }
+    public void write(String input) {
+        try {
+            outputStream.write(input.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void run() {

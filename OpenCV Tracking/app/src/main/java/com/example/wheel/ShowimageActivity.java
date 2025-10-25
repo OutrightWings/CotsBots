@@ -30,7 +30,7 @@ import org.opencv.imgproc.Imgproc;
 import java.io.IOException;
 
 public class ShowimageActivity extends AppCompatActivity {
-    Button Select, Camera, Detect;
+    Button Select, Camera, Detect, Ball;
     ImageView imageView;
     Bitmap bitmap;
     Mat mat;
@@ -46,12 +46,21 @@ public class ShowimageActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Ball = findViewById(R.id.Ball);
         Detect = findViewById(R.id.Detect); // for the Detect button jump into next page
         Detect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create an Intent，FROM SHOWIMAGEActivity JUMP TO DETECT ACTIVITY
                 Intent intent = new Intent(ShowimageActivity.this, DetectionActivity.class);
+                startActivity(intent); // jump
+            }
+        });
+        Ball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent，FROM SHOWIMAGEActivity JUMP TO DETECT ACTIVITY
+                Intent intent = new Intent(ShowimageActivity.this, ColorBlobDetectionActivity.class);
                 startActivity(intent); // jump
             }
         });

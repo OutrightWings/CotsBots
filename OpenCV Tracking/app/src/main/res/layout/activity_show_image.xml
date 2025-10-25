@@ -49,4 +49,15 @@
         android:layout_marginTop="7dp"
         />
 
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Ball"
+        android:id="@+id/Ball"
+        android:textSize="15sp"
+        android:layout_below="@+id/Detect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        />
+
 </RelativeLayout>
