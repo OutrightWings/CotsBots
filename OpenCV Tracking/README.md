@@ -1,2 +1,2 @@
 # ML-Android-develop
-# Zijun, Nikhitha & Aditya
+# Zijun Xiang, Nikhitha & Aditya

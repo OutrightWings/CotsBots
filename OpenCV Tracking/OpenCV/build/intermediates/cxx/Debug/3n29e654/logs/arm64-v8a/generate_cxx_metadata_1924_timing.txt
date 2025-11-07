@@ -2,5 +2,5 @@
 generate_cxx_metadata
   create-invalidation-state 17ms
   [gap of 21ms]
-generate_cxx_metadata completed in 43ms
+generate_cxx_metadata completed in 40ms
 

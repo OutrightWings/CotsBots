@@ -49,6 +49,7 @@ public class ShowimageActivity extends AppCompatActivity {
         Ball = findViewById(R.id.Ball);
         Detect = findViewById(R.id.Detect); // for the Detect button jump into next page
         Detect.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 // Create an Intent，FROM SHOWIMAGEActivity JUMP TO DETECT ACTIVITY
@@ -64,6 +65,16 @@ public class ShowimageActivity extends AppCompatActivity {
                 startActivity(intent); // jump
             }
         });
+
+        // ADD MICROPHONE JUMP HERE
+        Button Microphone = findViewById(R.id.Microphone);
+        Microphone.setOnClickListener(v -> {
+            Intent intent = new Intent(ShowimageActivity.this, MicroPhoneActivity.class);
+            startActivity(intent);
+        });
+
+
+
         getPermission();
         Camera = findViewById(R.id.Camera); //the function used to find item in xml layout
         Select = findViewById(R.id.Select);
@@ -116,6 +127,7 @@ public class ShowimageActivity extends AppCompatActivity {
 
         }
     }
+
 
     void getPermission() {
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
