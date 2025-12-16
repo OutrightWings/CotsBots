@@ -1,6 +1,19 @@
 //Robot Letter Control w/ good parsing :P
-//V1.1 Casey Jensen 10/09/2025
-//setup: upload onto arduino nano, open serial monitor, set pull downs to newline and 115200 baud
+//V2.2 Casey Jensen 12/15/2025
+//setup: open Arduino IDE and upload to robot via micro USB cable plugged into microcontroller
+//open serial monitor and set pull downs to newline and 115200 baud
+//with cord plugged in type commands into serial monitor and hit enter to send
+//commands: w = forward, s = backward, a = left, d = right, x = stop, z = instructions
+//add a number after w/a/s/d to move for that many milliseconds (e.g. w1000 = move forward for 1 second)
+
+//Known errors
+// -- when testing on a android device connected via bluetooth the transmission would send extra whitespace
+// -- to test we connected andriod device via bluetooth serial and sent commands using the bluno app given on DFrobots website
+
+//Sending commands via the serial monitor works perfectly fine on its own
+//put attempts at bridging the gap between a phones serial bluetooth input and the board itself were not successful
+//we believe the extra whitespace is causing issues with parsing the commands correctly 
+
 
 #include <ctype.h>
 // -------------------------------------------------------------
