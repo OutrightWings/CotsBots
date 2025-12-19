@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 
-//连接了蓝牙设备建立通信之后的数据交互线程类
 public class  ConnectedThread extends Thread{
 
     BluetoothSocket bluetoothSocket=null;
@@ -18,7 +17,7 @@ public class  ConnectedThread extends Thread{
     int[] lastData=new int[]{0,0};
     public ConnectedThread(BluetoothSocket bluetoothSocket){
         this.bluetoothSocket=bluetoothSocket;
-        //先新建暂时的Stream
+
         InputStream inputTemp=null;
         OutputStream outputTemp=null;
         try {
@@ -26,7 +25,7 @@ public class  ConnectedThread extends Thread{
             outputTemp=this.bluetoothSocket.getOutputStream();
         } catch (IOException e) {
             try {
-                bluetoothSocket.close();//出错就关闭线程吧
+                bluetoothSocket.close();
             } catch (IOException ex) {}
         }
         inputStream=inputTemp;
@@ -44,12 +43,11 @@ public class  ConnectedThread extends Thread{
     public void run() {
         super.run();
         while(true){
-            //发送数据
-            //btWriteString("hello I love you!\r\n");//发送一组字符串
-            if(!Arrays.toString(MainActivity.wheelData).equals(Arrays.toString(lastData))){//数组是否相等的判断！！！
+            //btWriteString("hello I love you!\r\n");
+            if(!Arrays.toString(MainActivity.wheelData).equals(Arrays.toString(lastData))){
                 btWriteInt(MainActivity.wheelData);
             }
-            lastData=MainActivity.wheelData;//做完一次发送重新给lastData赋值
+            lastData=MainActivity.wheelData;
         }
     }
 
@@ -61,16 +59,14 @@ public class  ConnectedThread extends Thread{
         }
     }
 
-    //自定义的发送字符串的函数
     public void btWriteString(String string){
         for(byte sendData:string.getBytes()){
             try {
-                outputStream.write(sendData);//outputStream发送字节的函数
+                outputStream.write(sendData);
             } catch (IOException e) {}
         }
     }
 
-    //自定义的关闭Socket线程的函数
     public void cancel(){
         try {
             bluetoothSocket.close();

@@ -8,7 +8,6 @@ import android.bluetooth.BluetoothSocket;
 
 import java.io.IOException;
 
-//连接蓝牙设备的操作线程类
 public class ConnectThread extends Thread{
 
     BluetoothDevice bluetoothDevice=null;
@@ -27,11 +26,10 @@ public class ConnectThread extends Thread{
             bluetoothSocket.connect();
         } catch (IOException e) {
             try {
-                bluetoothSocket.close();//出错就断开连接
+                bluetoothSocket.close();
             } catch (IOException ex) {}
         }
     }
-    //自定义的断开连接
     public void cancel(){
         if(bluetoothSocket!=null){
             try {

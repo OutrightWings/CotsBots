@@ -207,7 +207,7 @@ public class ColorBlobDetectionActivity extends CameraActivity implements OnTouc
                 long currentTime = System.currentTimeMillis();
 
                 if (currentTime - lastSendTime >= SEND_INTERVAL) {
-                    if (areaRatio >= 0.70) {
+                    if (areaRatio >= 0.50) {
                         Log.i(TAG, "Ball too close: BACKWARD");
                         Imgproc.putText(mRgba, "BACKWARD", new Point(50, 200),
                                 Imgproc.FONT_HERSHEY_SIMPLEX, 1.5, new Scalar(0, 0, 255), 3);
@@ -215,7 +215,7 @@ public class ColorBlobDetectionActivity extends CameraActivity implements OnTouc
                             connectedThread.write("s");  // 后退
                         }
                     }
-                    else if (areaRatio >= 0.50) {
+                    else if (areaRatio >= 0.30) {
                         Log.i(TAG, "Ball centered: STOP");
                         Imgproc.putText(mRgba, "STOP", new Point(50, 200),
                                 Imgproc.FONT_HERSHEY_SIMPLEX, 1.5, new Scalar(0, 255, 255), 3);
